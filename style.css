@@ -1,0 +1,19 @@
+
+body {
+    margin: 0;
+}
+
+#pokedex {
+    min-height: 40vh;
+    background-color: cadetblue;
+    color: white;
+    display: flex;
+}
+
+.info-pokemon {
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    min-height: 100px;
+    margin-top: -30px;
+}
