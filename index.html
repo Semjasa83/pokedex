@@ -8,25 +8,76 @@
     <title>Pokedex</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
 
 </head>
 
 <body onload="loadPokemon()">
-    <div class="pokemonSingleContainer">
+    <div class="pokemon-Single-Container">
         <div id="pokedex">
-            <div class="pokedexCenter">
-                <div id="returnButton">back</div>
+            <div class="pokedex-Center">
+                <div class="align-left">
+                    <img id="returnButton" src="img/arrow-left.png">
+                </div>
                 <h1 id="pokemonName">Name</h1>
                 <span id="pokemonNumber">#004</span>
-                <div id="pokemonType">
-                    <div>fire</div>
+                <div class="pokemon-type">
+                    <div id="pokemonType">fire</div>
                 </div>
             </div>
             <img id="pokemonAvatar"></img>
         </div>
         <div class="info-pokemon">
-
+            <div class="info-navigation">
+                <a href="#">Base Stats</a>
+                <a href="#">About</a>
+                <a href="#">Evolution</a>
+                <a href="#">Moves</a>
+            </div>
+            <div class="info-base-stats">
+                <table class="info-stats-values">
+                    <tr>
+                        <td>HP</td>
+                        <td>45</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Attack</td>
+                        <td>60</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Defense</td>
+                        <td>48</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sp.Atk</td>
+                        <td>65</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sp.Def</td>
+                        <td>65</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>45</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>317</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="type-defenses">
+                    <h5>Type defenses</h5>
+                    <span id="infoTypeDefenses">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
