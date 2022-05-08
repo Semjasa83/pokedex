@@ -3,7 +3,7 @@
 let currentPokemon;
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/charmander';
+    let url = 'https://pokeapi.co/api/v2/pokemon?limit=999';
     let response = await fetch(url);
     currentPokemon = await response.json();
 
@@ -19,6 +19,7 @@ function renderPokemonInfo() {
 }
 
 function renderPokemonOverviewInfo() {
-    document.getElementById('OverviewName').innerHTML = currentPokemon['name'];
+    document.getElementById('OverviewName').innerHTML = currentPokemon['results'][i]['name'];
     document.getElementById('OverviewAvatar').src = currentPokemon ['sprites']['other']['dream_world']['front_default'];
+    document.getElementById('OverviewType').innerHTML = currentPokemon['types'][0]['type']['name'];
 }
