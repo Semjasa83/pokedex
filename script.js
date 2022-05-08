@@ -10,9 +10,15 @@ async function loadPokemon() {
     console.log('loaded Pokemon', currentPokemon);
 
     renderPokemonInfo();
+    renderPokemonOverviewInfo();
 }
 
 function renderPokemonInfo() {
     document.getElementById('pokemonName').innerHTML = currentPokemon['name'];
     document.getElementById('pokemonAvatar').src = currentPokemon ['sprites']['other']['dream_world']['front_default'];
+}
+
+function renderPokemonOverviewInfo() {
+    document.getElementById('OverviewName').innerHTML = currentPokemon['name'];
+    document.getElementById('OverviewAvatar').src = currentPokemon ['sprites']['other']['dream_world']['front_default'];
 }

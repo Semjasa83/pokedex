@@ -5,9 +5,13 @@ body {
     font-family: 'Open Sans', sans-serif;;
 }
 
+h1 {
+    margin: 0;
+}
+
 /* Upper Info Detailbox */
 
-.pokemon-Single-Container {
+.pokemon-single-container {
     width: 350px;
 }
 
@@ -23,7 +27,7 @@ body {
     padding-right: 24px;
 }
 
-.pokedex-Center {
+.pokedex-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,4 +135,71 @@ h5 {
 
 #infoTypeDefenses {
     font-size: 12px;
+}
+
+/* Pokemon Overview */
+
+.overview-body {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    min-height: 100vh;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.overview-header {
+    min-height: 150px;
+    border: 1px solid red;
+}
+
+#OverviewContent {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+#OverviewSingle {
+    display: flex;
+    background-color: cadetblue;
+    border-radius: 20px;
+    width: 230px;
+    min-height: 150px;
+    padding: 24px 12px 12px 12px;
+}
+
+#OverviewName {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.overview-seperate {
+    display: flex;
+}
+
+.overview-type {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    width: 65px;
+    height: 12px;
+    padding: 6px 2px 6px 2px;
+    justify-content: center;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#OverviewType {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#OverviewAvatar {
+    display: flex;
+    height: 100px;
+    object-fit: contain;
+    margin: 16px 0px 0px 30px;
+
 }

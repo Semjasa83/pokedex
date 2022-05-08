@@ -14,9 +14,29 @@
 </head>
 
 <body onload="loadPokemon()">
-    <div class="pokemon-Single-Container">
+    <div class="overview-body">
+        <div class="overview-header">
+            <h1>Pokedex</h1>
+        </div>
+        <div id="OverviewContent">
+            <div id="OverviewSingle">
+                <div id="OverviewDescription">
+                    <span id="OverviewName">Bulbasur</span>
+                    <div class="overview-seperate">
+                        <div class="overview-type">
+                            <div id="OverviewType">Fire</div>
+                        </div>
+                        <img id="OverviewAvatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pokemon-single-container">
         <div id="pokedex">
-            <div class="pokedex-Center">
+            <div class="pokedex-center">
                 <div class="align-left">
                     <img id="returnButton" src="img/arrow-left.png">
                 </div>
@@ -26,7 +46,7 @@
                     <div id="pokemonType">fire</div>
                 </div>
             </div>
-            <img id="pokemonAvatar"></img>
+            <img id="pokemonAvatar">
         </div>
         <div class="info-pokemon">
             <div class="info-navigation">
