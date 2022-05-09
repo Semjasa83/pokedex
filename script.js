@@ -1,25 +1,31 @@
+let allPokemon = [];
+let allPokemonArray = [];
 
-   
-let currentPokemon;
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon?limit=999';
+    let url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`;
     let response = await fetch(url);
-    currentPokemon = await response.json();
+    allPokemon = await response.json();
 
-    console.log('loaded Pokemon', currentPokemon);
+    console.log('loaded first 20 Pokemon', allPokemon);
 
-    renderPokemonInfo();
-    renderPokemonOverviewInfo();
+    renderOverview(allPokemon);
 }
 
-function renderPokemonInfo() {
-    document.getElementById('pokemonName').innerHTML = currentPokemon['name'];
-    document.getElementById('pokemonAvatar').src = currentPokemon ['sprites']['other']['dream_world']['front_default'];
-}
+async function renderOverview(allPokemon) {
 
-function renderPokemonOverviewInfo() {
-    document.getElementById('OverviewName').innerHTML = currentPokemon['results'][i]['name'];
-    document.getElementById('OverviewAvatar').src = currentPokemon ['sprites']['other']['dream_world']['front_default'];
-    document.getElementById('OverviewType').innerHTML = currentPokemon['types'][0]['type']['name'];
+    //let overview = document.getElementById('overviewContent');
+    //overview.innerHTML = '';
+
+    for (let i = 0; i < allPokemon.results.length; i++) { //1te Array durchlaufen
+        const pokemonUrl = allPokemon.results[i]['url']; //url aus 1 JSON Array
+        let response = await fetch(pokemonUrl);
+        pokemonArray = await response.json();
+        
+        //console.log(allPokemon.results[i]['name']);
+        allPokemonArray.push(pokemonArray);
+        console.log(pokemonArray);
+
+    }
+
 }

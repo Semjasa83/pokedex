@@ -153,14 +153,14 @@ h5 {
     border: 1px solid red;
 }
 
-#OverviewContent {
+#overviewContent {
     color: white;
     display: flex;
     flex-wrap: wrap;
     margin-top: 24px;
 }
 
-#OverviewSingle {
+#overviewSingle {
     display: flex;
     background-color: cadetblue;
     border-radius: 20px;
@@ -169,7 +169,7 @@ h5 {
     padding: 24px 12px 12px 12px;
 }
 
-#OverviewName {
+#overviewName {
     text-align: right;
     font-size: 16px;
     font-weight: 700;
@@ -191,12 +191,12 @@ h5 {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#OverviewType {
+#overviewType {
     font-size: 12px;
     font-weight: 700;
 }
 
-#OverviewAvatar {
+#overviewAvatar {
     display: flex;
     height: 100px;
     object-fit: contain;
