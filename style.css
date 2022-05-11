@@ -144,18 +144,20 @@ h5 {
     flex-direction: column;
     background-color: lightgray;
     min-height: 100vh;
-    padding-left: 24px;
-    padding-right: 24px;
+
 }
 
 .overview-header {
     min-height: 150px;
     border: 1px solid red;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 #overviewContent {
     color: white;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin-top: 24px;
 }
