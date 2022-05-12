@@ -170,6 +170,7 @@ h5 {
     min-height: 150px;
     padding: 24px 12px 12px 12px;
     margin: 16px;
+    overflow: hidden;
 }
 
 #overviewName {
