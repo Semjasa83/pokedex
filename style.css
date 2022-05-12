@@ -1,12 +1,22 @@
 
 body {
     margin: 0;
-    background-color: darkgray;
-    font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     margin: 0;
+}
+
+.justify {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero-image {
+    background-image: url("img/single-bgr.jpg");
+    background-color: darkgray;
+    background-repeat: repeat-y;
 }
 
 /* Upper Info Detailbox */
@@ -144,7 +154,10 @@ h5 {
     flex-direction: column;
     background-color: lightgray;
     min-height: 100vh;
-
+    background-image: url("img/single-bgr.jpg");
+    background-color: darkgray;
+    background-repeat: repeat-y;
+    background-size: contain;
 }
 
 .overview-header {
@@ -164,7 +177,7 @@ h5 {
 
 #overviewSingle {
     display: flex;
-    background-color: cadetblue;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     width: 230px;
     min-height: 150px;
@@ -173,37 +186,47 @@ h5 {
     overflow: hidden;
 }
 
-#overviewName {
+.overview-description {
+    width: 100%;
+}
+
+.overview-name {
+    display: flex;
     text-align: left;
     font-size: 16px;
     font-weight: 700;
 }
 
+.overview-id {
+    display: flex;
+    text-align: right;
+    font-size: 12px;
+}
+
 .overview-seperate {
     display: flex;
+    margin-bottom: 8px;
+    max-width: 100%;
 }
 
 .overview-type {
     display: flex;
     align-items: center;
     margin-top: 8px;
+    margin-right: 16px;
     width: 65px;
     height: 12px;
     padding: 6px 2px 6px 2px;
     justify-content: center;
     border-radius: 24px;
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-#overviewType {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #overviewAvatar {
     display: flex;
     height: 100px;
     object-fit: contain;
-    margin: 16px 0px 0px 30px;
-
+    margin: 16px 0 0 16px;
 }

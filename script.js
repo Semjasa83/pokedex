@@ -1,12 +1,11 @@
 let allPokemon = [];
 let allPokemonArray = [];
-let allPokemonTypesArray = [];
 
 
 //fetchen und Push der API ins Array - gesamt Load 
 async function loadPokemon() {
 
-    let url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=38`;
+    let url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=21`;
     let response = await fetch(url); //api fetchen und in Array allPokemon
     allPokemon = await response.json();
     //console.log('loaded first 20 Pokemon', allPokemon); //CONSOLE
@@ -49,7 +48,9 @@ function templateTypes(pokemon) {
     for (let index = 0; index < pokemon.types.length; index++) {
         const typesValue = pokemon.types[index];
         htmlCode += /*html*/`
-        ${typesValue.type['name']}
+        <div class="overview-type">
+        <div id="overviewType">${typesValue.type['name']}</div>
+        </div>
         `        
     }
     return htmlCode;
@@ -58,12 +59,13 @@ function templateTypes(pokemon) {
 function templatePokemonOverview(pokemon) {
     return /*html*/`
         <div id="overviewSingle">
-                <div id="overviewDescription">
-                    <div id="overviewName">${pokemon.name}</div>
+                <div class="overview-description">
+                    <div class="overview-seperate justify">
+                        <div class="overview-name">${pokemon.name}</div>
+                        <div class="overview-id">#${pokemon.id}</div>
+                    </div>
                     <div class="overview-seperate">
-                        <div class="overview-type" id="outer-overview-type">
-                            <div id="overviewType">${templateTypes(pokemon)}</div>
-                        </div>
+                        <div>${templateTypes(pokemon)}</div>
                         <img id="overviewAvatar" src="${pokemon.sprites.other.dream_world.front_default}">
                     </div>
                 </div>
