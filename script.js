@@ -1,6 +1,5 @@
 let allPokemon = [];
 let allPokemonArray = [];
-let singlePokemonArray = [];
 
 
 //fetchen und Push der API ins Array - gesamt Load 
@@ -9,8 +8,6 @@ async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=21`;
     let response = await fetch(url); //api fetchen und in Array allPokemon
     allPokemon = await response.json();
-    //console.log('loaded first 20 Pokemon', allPokemon); //CONSOLE
-
     loadAllPokemonData(allPokemon);
 }
 
@@ -24,8 +21,6 @@ async function loadAllPokemonData(allPokemon) {
         pokemonArray = await response.json();
 
         allPokemonArray.push(pokemonArray); //aus 2ter URL die kompletten Daten in das 2te Array allPokemonArray
-        //console.log('pokemonArray', allPokemon); //CONSOLE
-        //console.log('allpokemonArray', allPokemonArray); //CONSOLE
     }
     loadPokemonOverview();
 }
@@ -36,14 +31,22 @@ function loadPokemonOverview() {
 
     for (let i = 0; i < allPokemonArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
-            templatePokemonOverview(allPokemonArray[i]);
+            templatePokemonOverview(allPokemonArray[i], i);
             console.log(allPokemonArray[i]);
 
             /**
              *Hier allPokemonArray[i] abgreifen
-             *   */ 
+             *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
+             *
+             *openPokemonInfo() -> d-none löschen 
+             * 
+             * 
+             *    */ 
     }
+}
 
+function openPokemonInfo(infoPokemon) {
+    console.log(infoPokemon);
 }
 
 //template für Types
@@ -60,9 +63,9 @@ function templateTypes(pokemon) {
     return htmlCode;
 }
 
-function templatePokemonOverview(pokemon) {
+function templatePokemonOverview(pokemon, i) {
     return /*html*/`
-        <div id="overviewSingle" class="cursor">
+        <div id="overview" class="cursor" onclick="openPokemonInfo(${i})">
                 <div class="overview-description">
                     <div class="overview-seperate justify">
                         <div class="overview-name">${pokemon.name}</div>

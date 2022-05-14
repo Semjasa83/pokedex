@@ -172,7 +172,7 @@ h5 {
     margin-top: 24px;
 }
 
-#overviewSingle {
+#overview {
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
