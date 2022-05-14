@@ -13,10 +13,8 @@ h1 {
     justify-content: space-between;
 }
 
-.hero-image {
-    background-image: url("img/single-bgr.jpg");
-    background-color: darkgray;
-    background-repeat: repeat-y;
+.cursor {
+    cursor: pointer;
 }
 
 /* Upper Info Detailbox */
@@ -157,12 +155,11 @@ h5 {
     background-image: url("img/single-bgr.jpg");
     background-color: darkgray;
     background-repeat: repeat-y;
-    background-size: contain;
+    background-size: cover;
 }
 
 .overview-header {
     min-height: 150px;
-    border: 1px solid red;
     padding-left: 24px;
     padding-right: 24px;
 }
