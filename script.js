@@ -48,7 +48,7 @@ function loadPokemonOverview() {
 function openPokemonInfo(i) {
     let detailValue = allPokemonArray[i];
     let detailChoice = document.getElementById('pokemonSingleDetail');
-    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(i)}</div>`;
+    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>`;
     console.log(detailValue);
 
     return detailChoice;
@@ -85,20 +85,20 @@ function templatePokemonOverview(pokemon, i) {
         `;
 }
 
-function templateSinglePokemon(infoPokemon) {
+function templateSinglePokemon(detailValue) {
     return /*html*/`
         <div id="pokedex">
             <div class="pokedex-center">
                 <div class="align-left">
                     <img id="returnButton" src="img/arrow-left.png">
                 </div>
-                <h1 id="pokemonName">Name</h1>
-                <span id="pokemonNumber">#004</span>
+                <h1 id="pokemonName">${detailValue.name}</h1>
+                <span id="pokemonNumber">#${detailValue.id}</span>
                 <div class="pokemon-type">
                     <div id="pokemonType">fire</div>
                 </div>
             </div>
-            <img id="pokemonAvatar">
+            <img id="pokemonAvatar" src="${detailValue.sprites.other.dream_world.front_default}">
         </div>
         <div class="info-pokemon">
             <div class="info-navigation">
@@ -111,37 +111,37 @@ function templateSinglePokemon(infoPokemon) {
                 <table class="info-stats-values">
                     <tr>
                         <td>HP</td>
-                        <td>45</td>
+                        <td>${detailValue.stats[0].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Attack</td>
-                        <td>60</td>
+                        <td>${detailValue.stats[1].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Defense</td>
-                        <td>48</td>
+                        <td>${detailValue.stats[2].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Sp.Atk</td>
-                        <td>65</td>
+                        <td>${detailValue.stats[3].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Sp.Def</td>
-                        <td>65</td>
+                        <td>${detailValue.stats[4].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Speed</td>
-                        <td>45</td>
+                        <td>${detailValue.stats[5].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>317</td>
+                        <td>BERECHNEN!!!</td>
                         <td></td>
                     </tr>
                 </table>
