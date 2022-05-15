@@ -32,21 +32,26 @@ function loadPokemonOverview() {
     for (let i = 0; i < allPokemonArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
             templatePokemonOverview(allPokemonArray[i], i);
-            console.log(allPokemonArray[i]);
+        //console.log(allPokemonArray[i]);
 
-            /**
-             *Hier allPokemonArray[i] abgreifen
-             *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
-             *
-             *openPokemonInfo() -> d-none löschen 
-             * 
-             * 
-             *    */ 
+        /**
+         *Hier allPokemonArray[i] abgreifen
+         *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
+         *
+         *openPokemonInfo() -> d-none löschen 
+         * 
+         * 
+         *    */
     }
 }
 
-function openPokemonInfo(infoPokemon) {
-    console.log(infoPokemon);
+function openPokemonInfo(i) {
+    let detailValue = allPokemonArray[i];
+    let detailChoice = document.getElementById('pokemonSingleDetail');
+    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(i)}</div>`;
+    console.log(detailValue);
+
+    return detailChoice;
 }
 
 //template für Types
@@ -80,9 +85,9 @@ function templatePokemonOverview(pokemon, i) {
         `;
 }
 
-function templateSinglePokemon() {
+function templateSinglePokemon(infoPokemon) {
     return /*html*/`
-    <div id="pokedex">
+        <div id="pokedex">
             <div class="pokedex-center">
                 <div class="align-left">
                     <img id="returnButton" src="img/arrow-left.png">

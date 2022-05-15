@@ -19,7 +19,7 @@ h1 {
 
 /* Upper Info Detailbox */
 
-.pokemon-single-container {
+#pokemonSingleContainer {
     width: 350px;
 }
 
