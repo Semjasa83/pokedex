@@ -2,6 +2,9 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 h1 {
@@ -17,7 +20,21 @@ h1 {
     cursor: pointer;
 }
 
+.d-none {
+    display: none;
+}
+
 /* Upper Info Detailbox */
+
+#pokemonSingleDetail {
+    display: flex;
+    /*position: absolute;*/
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
 #pokemonSingleContainer {
     width: 350px;

@@ -14,12 +14,10 @@ async function loadPokemon() {
 
 //unterlegte URLs ins zweite Array pushen
 async function loadAllPokemonData(allPokemon) {
-
     for (let i = 0; i < allPokemon.results.length; i++) { //1te Array durchlaufen
         const pokemonUrl = allPokemon.results[i]['url']; //url aus 1 JSON Array
         let response = await fetch(pokemonUrl); //2te url Ebene fetchen
         pokemonArray = await response.json();
-
         allPokemonArray.push(pokemonArray); //aus 2ter URL die kompletten Daten in das 2te Array allPokemonArray
     }
     loadPokemonOverview();
@@ -28,31 +26,55 @@ async function loadAllPokemonData(allPokemon) {
 //rendern fürs Overview und types zerpflücken
 function loadPokemonOverview() {
     document.getElementById('overviewContent').innerHTML = '';
-
     for (let i = 0; i < allPokemonArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
             templatePokemonOverview(allPokemonArray[i], i);
-        //console.log(allPokemonArray[i]);
+    }
+}
+
+
+function openPokemonInfo(i) {
+    let detailValue = allPokemonArray[i];
+    let detailChoice = document.getElementById('pokemonSingleDetail');
+    detailChoice.innerHTML = '';
+    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>`;
+    statsCalc(detailValue);
+    return detailChoice;
 
         /**
-         *Hier allPokemonArray[i] abgreifen
          *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
          *
          *openPokemonInfo() -> d-none löschen 
          * 
          * 
          *    */
-    }
 }
 
-function openPokemonInfo(i) {
-    let detailValue = allPokemonArray[i];
-    let detailChoice = document.getElementById('pokemonSingleDetail');
-    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>`;
+function showPokemonInfo() {
+    let showPopup = document.getElementById('pokemonSingleDetail');
+    showPopup.classList.remove(d-none);
+}
+
+function statsCalc(detailValue) {
     console.log(detailValue);
+    let total = detailValue.stats[0].base_stat 
+        + detailValue.stats[1].base_stat 
+        + detailValue.stats[2].base_stat 
+        + detailValue.stats[3].base_stat 
+        + detailValue.stats[4].base_stat 
+        + detailValue.stats[5].base_stat;
+    console.log(total);
 
-    return detailChoice;
+    let returnTotal = total;
+    document.getElementById('stats_total').innerHTML = total;
 }
+
+
+/*
+function loadSinglePokemonTypes(){
+    console.log();
+}
+*/
 
 //template für Types
 function templateTypes(pokemon) {
@@ -62,11 +84,11 @@ function templateTypes(pokemon) {
         htmlCode += /*html*/`
         <div class="overview-type">
         <div id="overviewType">${typesValue.type['name']}</div>
-        </div>
-        `
+        </div>`
     }
     return htmlCode;
 }
+
 
 function templatePokemonOverview(pokemon, i) {
     return /*html*/`
@@ -81,9 +103,10 @@ function templatePokemonOverview(pokemon, i) {
                         <img id="overviewAvatar" src="${pokemon.sprites.other.dream_world.front_default}">
                     </div>
                 </div>
-            </div>
-        `;
+            </div> `;
 }
+
+
 
 function templateSinglePokemon(detailValue) {
     return /*html*/`
@@ -94,9 +117,7 @@ function templateSinglePokemon(detailValue) {
                 </div>
                 <h1 id="pokemonName">${detailValue.name}</h1>
                 <span id="pokemonNumber">#${detailValue.id}</span>
-                <div class="pokemon-type">
-                    <div id="pokemonType">fire</div>
-                </div>
+                <div class="pokemon-type"></div>
             </div>
             <img id="pokemonAvatar" src="${detailValue.sprites.other.dream_world.front_default}">
         </div>
@@ -111,44 +132,46 @@ function templateSinglePokemon(detailValue) {
                 <table class="info-stats-values">
                     <tr>
                         <td>HP</td>
-                        <td>${detailValue.stats[0].base_stat}</td>
+                        <td id="stats_0">${detailValue.stats[0].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Attack</td>
-                        <td>${detailValue.stats[1].base_stat}</td>
+                        <td id="stats_1">${detailValue.stats[1].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Defense</td>
-                        <td>${detailValue.stats[2].base_stat}</td>
+                        <td id="stats_2">${detailValue.stats[2].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Sp.Atk</td>
-                        <td>${detailValue.stats[3].base_stat}</td>
+                        <td id="stats_3">${detailValue.stats[3].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Sp.Def</td>
-                        <td>${detailValue.stats[4].base_stat}</td>
+                        <td id="stats_4">${detailValue.stats[4].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Speed</td>
-                        <td>${detailValue.stats[5].base_stat}</td>
+                        <td id="stats_5">${detailValue.stats[5].base_stat}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>BERECHNEN!!!</td>
+                        <td id="stats_total"></td>
                         <td></td>
                     </tr>
                 </table>
+                <!--
                 <div class="type-defenses">
                     <h5>Type defenses</h5>
-                    <span id="infoTypeDefenses">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    <span id="infoTypeDefenses">FIRE</span>
                 </div>
+-->
             </div>
         </div>
     `
