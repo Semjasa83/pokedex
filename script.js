@@ -35,11 +35,15 @@ function loadPokemonOverview() {
 
 function openPokemonInfo(i) {
     let detailValue = allPokemonArray[i];
-    let detailChoice = document.getElementById('pokemonSingleDetail');
-    detailChoice.innerHTML = '';
-    detailChoice.innerHTML += `<div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>`;
+    let detail = document.getElementById('pokemonPopup');
+    detail.innerHTML = '';
+    detail.innerHTML += `
+    <div id="pokemonSingleBgr">
+    <div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>
+    </div>`;
+    detail.classList.remove("index-front");
     statsCalc(detailValue);
-    return detailChoice;
+    return detail;
 
         /**
          *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
@@ -50,9 +54,9 @@ function openPokemonInfo(i) {
          *    */
 }
 
-function showPokemonInfo() {
-    let showPopup = document.getElementById('pokemonSingleDetail');
-    showPopup.classList.remove(d-none);
+function closePokemonInfo() {
+    let closeButton = document.getElementById('pokemonPopup');
+    closeButton.classList.add("index-front");
 }
 
 function statsCalc(detailValue) {
@@ -64,14 +68,12 @@ function statsCalc(detailValue) {
         + detailValue.stats[4].base_stat 
         + detailValue.stats[5].base_stat;
     console.log(total);
-
-    let returnTotal = total;
     document.getElementById('stats_total').innerHTML = total;
 }
 
 
 /*
-function loadSinglePokemonTypes(){
+function loadDetailTypes(){
     console.log();
 }
 */
@@ -113,7 +115,7 @@ function templateSinglePokemon(detailValue) {
         <div id="pokedex">
             <div class="pokedex-center">
                 <div class="align-left">
-                    <img id="returnButton" src="img/arrow-left.png">
+                    <img class="return-button cursor" src="img/arrow-left.png" onclick="closePokemonInfo()">
                 </div>
                 <h1 id="pokemonName">${detailValue.name}</h1>
                 <span id="pokemonNumber">#${detailValue.id}</span>
