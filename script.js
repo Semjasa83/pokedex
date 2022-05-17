@@ -20,11 +20,11 @@ async function loadAllPokemonData(allPokemon) {
         pokemonArray = await response.json();
         allPokemonArray.push(pokemonArray); //aus 2ter URL die kompletten Daten in das 2te Array allPokemonArray
     }
-    loadPokemonOverview();
+    loadOverview();
 }
 
 //rendern fürs Overview und types zerpflücken
-function loadPokemonOverview() {
+function loadOverview() {
     document.getElementById('overviewContent').innerHTML = '';
     for (let i = 0; i < allPokemonArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
@@ -41,22 +41,14 @@ function openPokemonInfo(i) {
     <div id="pokemonSingleBgr">
     <div id="pokemonSingleContainer">${templateSinglePokemon(detailValue)}</div>
     </div>`;
-    detail.classList.remove("index-front");
+    detail.classList.remove("d-none");
     statsCalc(detailValue);
     return detail;
-
-        /**
-         *load templateSinglePokemon(allPokemonArray[i]) (( MUSS d-None haben! ))
-         *
-         *openPokemonInfo() -> d-none löschen 
-         * 
-         * 
-         *    */
 }
 
 function closePokemonInfo() {
-    let closeButton = document.getElementById('pokemonPopup');
-    closeButton.classList.add("index-front");
+    let closePopup = document.getElementById('pokemonPopup');
+    closePopup.classList.add("d-none");
 }
 
 function statsCalc(detailValue) {
@@ -109,13 +101,14 @@ function templatePokemonOverview(pokemon, i) {
 }
 
 
-
 function templateSinglePokemon(detailValue) {
     return /*html*/`
-        <div id="pokedex">
+        <div id="pokedex" class="#">
             <div class="pokedex-center">
                 <div class="align-left">
+                    <div>
                     <img class="return-button cursor" src="img/arrow-left.png" onclick="closePokemonInfo()">
+                    </div>
                 </div>
                 <h1 id="pokemonName">${detailValue.name}</h1>
                 <span id="pokemonNumber">#${detailValue.id}</span>
