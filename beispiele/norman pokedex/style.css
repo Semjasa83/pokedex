@@ -1,0 +1,143 @@
+    body {
+        background-image: linear-gradient(rgba(25, 22, 22, 0.8), rgba(75, 73, 73, 0.8)), url('img/bg1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        background-attachment: fixed;
+        margin: 0 !important;
+    }
+    
+    .containerContent {
+        margin-bottom: 30px;
+    }
+    
+    img {
+        opacity: 0.9;
+    }
+    
+    img:hover {
+        opacity: 1.0;
+    }
+    
+    .overline {
+        font-size: 55px;
+        color: white;
+        padding: 35px;
+    }
+    
+    .listPokemonImage {
+        height: 150px;
+        width: 150px;
+    }
+    
+    #listPokemonCards {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    .pokemonCards {
+        background-color: #dbdbdb;
+        border-radius: 30px;
+        border: 1px solid black;
+        margin: 25px;
+        height: 280px !important;
+        width: 280px !important;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    #listPokemonName {
+        margin-bottom: 20px;
+    }
+    
+    .detailView {
+        z-index: 60;
+        height: 100vh;
+        background: rgba(41, 41, 41, 0.659);
+        top: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+    
+    .grass {
+        background-color: greenyellow;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    
+    .fire {
+        background-color: rgb(191, 0, 0);
+        padding: 10px;
+        border-radius: 30px;
+        color: white;
+    }
+    
+    .bug {
+        background-color: rgb(249, 219, 50);
+        padding: 10px;
+        border-radius: 30px;
+    }
+    
+    .water {
+        background-color: rgb(56, 72, 251);
+        padding: 10px;
+        border-radius: 30px;
+        color: white;
+    }
+    
+    .normal {
+        background-color: rgb(151, 151, 151);
+        padding: 10px;
+        border-radius: 30px;
+    }
+    /*Footer*/
+    
+    footer {
+        align-items: center;
+        justify-content: space-evenly;
+        display: flex;
+        padding: 80px;
+        height: 150px;
+        background-color: #dbdbdb;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .paddingLeftRight {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 850px) {
+        footer {
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            display: flex;
+            height: 200px;
+            word-wrap: break-word;
+        }
+        .law {
+            margin-top: 16px;
+            word-wrap: break-word;
+        }
+        .socialMedia {
+            margin-bottom: 16px;
+            margin-top: 16px;
+        }
+    }

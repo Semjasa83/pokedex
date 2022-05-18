@@ -52,13 +52,15 @@ function closePokeDetail() {
 }
 
 function statsCalc(detailValue) {
-    let total = detailValue.stats[0].base_stat 
-        + detailValue.stats[1].base_stat 
-        + detailValue.stats[2].base_stat 
-        + detailValue.stats[3].base_stat 
-        + detailValue.stats[4].base_stat 
-        + detailValue.stats[5].base_stat;
+    let hp = detailValue.stats[0].base_stat;
+    let attack = detailValue.stats[1].base_stat;
+    let defense = detailValue.stats[2].base_stat;
+    let spatk = detailValue.stats[3].base_stat;
+    let spdef = detailValue.stats[4].base_stat;
+    let speed = detailValue.stats[5].base_stat;
+    let total = hp + attack + defense + spatk + spdef + speed;
     document.getElementById('stats_total').innerHTML = total;
+    statsProgressBar(hp, attack, defense, spatk, spdef, speed);
 }
 
 
@@ -67,6 +69,16 @@ function loadDetailTypes(){
     console.log();
 }
 */
+
+//Progressbar
+function statsProgressBar(hp, attack, defense, spatk, spdef, speed){
+    document.getElementById("progress_0").style.width = hp + "%";
+    document.getElementById("progress_1").style.width = attack + "%";
+    document.getElementById("progress_2").style.width = defense + "%";
+    document.getElementById("progress_3").style.width = spatk + "%";
+    document.getElementById("progress_4").style.width = spdef + "%";
+    document.getElementById("progress_5").style.width = speed + "%";
+}
 
 //template für Types
 function templateTypes(pokemon) {
@@ -125,45 +137,43 @@ function templatePokeDetail(detailValue) {
             <div class="info-navigation">
                 <a href="#">Base Stats</a>
                 <a href="#">About</a>
-                <a href="#">Evolution</a>
-                <a href="#">Moves</a>
             </div>
             <div class="info-base-stats">
                 <table class="info-stats-values">
                     <tr>
                         <td>HP</td>
                         <td id="stats_0">${detailValue.stats[0].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_0" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Attack</td>
                         <td id="stats_1">${detailValue.stats[1].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_1" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Defense</td>
                         <td id="stats_2">${detailValue.stats[2].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_2" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Sp.Atk</td>
                         <td id="stats_3">${detailValue.stats[3].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_3" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Sp.Def</td>
                         <td id="stats_4">${detailValue.stats[4].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_4" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Speed</td>
                         <td id="stats_5">${detailValue.stats[5].base_stat}</td>
-                        <td></td>
+                        <td class="progress"><span id="progress_5" class="progress-bar" style="width: 75%"></span></td>
                     </tr>
                     <tr>
                         <td>Total</td>
                         <td id="stats_total"></td>
-                        <td></td>
+                        <td class="noprogress"></td>
                     </tr>
                 </table>
                 <!--

@@ -135,8 +135,8 @@ h1 {
 
 .info-navigation {
     display: flex;
-    justify-content: space-between;
     padding-top: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .info-navigation a {
@@ -148,7 +148,7 @@ h1 {
     font-size: 12px;
     width: 80px;
     cursor: pointer;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0);
 }
 
 .info-navigation a:hover{
@@ -160,11 +160,6 @@ h1 {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
     border-spacing: 0px 4px;
-}
-
-td:last-child {
-    width: 100%;
-    border: 1px solid red;
 }
 
 td:first-child {
@@ -268,4 +263,35 @@ h5 {
     height: 100px;
     object-fit: contain;
     margin: 16px 0 0 16px;
+}
+
+/* Progressbars */
+
+.progress{
+    width: 100%;
+    max-width: 260px;
+    height: 6px;
+    background: #e1e4e8;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid rgb(99, 99, 99);
+}
+
+.progress-bar{
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg,#ffd33d,#ea4aaa 17%,#b34bff 34%,#01feff 51%,#ffd33d 68%,#ea4aaa 85%,#b34bff);
+    background-size: 300% 100%;
+    animation: progress-animation 2s linear infinite;
+}
+
+.noprogress {
+    display: none;
+}
+
+@keyframes progress-animation {
+  0%
+    {background-position: 100%}
+  100%
+    {background-position: 0}
 }

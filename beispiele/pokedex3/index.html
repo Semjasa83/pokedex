@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/fav.ico" type="image/x-icon">
+    <script src="script.js"></script>
+    <title>Pokedex</title>
+</head>
+
+<body onload="loadPokemon()">
+    <header>
+        <img src="img/logo.png" alt="Pokedex Logo" class="logo">
+        <div class="search-pokemon">
+            <input type="text" id="input" class="border-radius" placeholder="search by full name or ID" onkeydown="keydown(event)">
+            <div onclick="searchPokemon()"><img src="img/search_FILL0_wght400_GRAD0_opsz48.png" alt=""></div>
+        </div>
+    </header>
+    <main class="flex-colum">
+        <div id="pokemon-cards">
+        </div>
+        <button onclick="loadMorePokemon()" class="more border-radius">load another 20 pokemon</button>
+        <div class="big-card d-none" id="big">
+            <div class="card border-radius" id="card-container">
+                <div class="close" onclick="closeBigCard()">x</div>
+                <div class="flex-colum border-radius" id="card-head"></div>
+                <div class="card-footer border-radius">
+                    <div id="info">
+                        <table id="table-about">
+                            <div class="headline">
+                                <span id="about" onclick="showInfo()">About</span>
+                                <span id="stats" onclick="showInfo()">Stats</span>
+                            </div>
+                            <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td id="id"># 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Height</td>
+                                    <td id="height">70 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td id="weight">6.9 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Abilities</td>
+                                    <td id="abilities">
+                                        <ul id="list">
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <table id="table-stats" class="d-none">
+                                <tbody>
+                                    <tr>
+                                        <td>Hp</td>
+                                        <td><progress id="hp" value="55" max="100"></progress></td>
+                                        <td id="hp-num">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attack</td>
+                                        <td><progress id="attack" value="81" max="100"></progress></td>
+                                        <td id="attack-num">55</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Defense</td>
+                                        <td><progress id="defense" value="60" max="100"></progress></td>
+                                        <td id="defense-num">55</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sp.Attack</td>
+                                        <td><progress id="special-attack" value="50" max="100"></progress></td>
+                                        <td id="spa-num">55</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sp.Defense</td>
+                                        <td><progress id="special-defense" value="70" max="100"></progress></td>
+                                        <td id="spd-num">55</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Speed</td>
+                                        <td><progress id="speed" value="95" max="100"></progress></td>
+                                        <td id="speed-num">55</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

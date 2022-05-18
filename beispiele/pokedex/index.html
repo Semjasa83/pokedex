@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<script src="script.js"></script>
+
+
+<body onload="loadAPIPokemon()">
+
+    <div class="header">
+        <div class="headerLeft">
+            <img class="headerImg" src="./img/header_img.png">
+            <div class="headerText">Pokédex</div>
+        </div>
+        <div class="headerRight">
+            <img src="./img/search.svg">
+            <input id="pokemonSearch" class="pokemonSearch" onkeyup="searchPokemon()">
+        </div>
+
+    </div>
+
+    <div class="allPokemon" id="allPokemon"></div>
+
+
+    <div id="pokedexContainer" class="pokedexContainer d-none">
+        <div id="pokemonHeader" class="pokemonHeader">
+            <div class="orientationBar">
+                <img onclick="hidePokemonCard()" class="orientationBarImg" src="./img/arrow_back_white_24dp.svg">
+            </div>
+            <div id="pokemonName" class="pokemonName">Name</div>
+        </div>
+
+        <div id="infoContainer" class="infoContainer">
+            <img id="pokemonImg" class="pokemonImg" src="">
+            <div id="pokemonStatistics" class="pokemonStatistics">
+
+                <div class="containerStats">
+                    <div id="stat0"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 39%; background-color: red;" id="statValue0"></div>
+                    </div>
+                </div>
+                <div class="containerStats">
+                    <div id="stat1"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 52%; background-color: green;" id="statValue1">
+                        </div>
+                    </div>
+                </div>
+                <div class="containerStats">
+                    <div id="stat2"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 39%; background-color: red;" id="statValue2"></div>
+                    </div>
+                </div>
+                <div class="containerStats">
+                    <div id="stat3"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 60%; background-color: green;" id="statValue3">
+                        </div>
+                    </div>
+                </div>
+                <div class="containerStats">
+                    <div id="stat4"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 50%; background-color: green;" id="statValue4">
+                        </div>
+                    </div>
+                </div>
+                <div class="containerStats">
+                    <div id="stat5"></div>
+                    <div class="statValue">
+                        <div class="statValueBar" style="width: 65%; background-color: green;" id="statValue5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
