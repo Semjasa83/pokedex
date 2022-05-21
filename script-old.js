@@ -41,6 +41,7 @@ function openPokeDetail(i) {
     overlay.classList.remove("d-none");
     noscroll.classList.add("noscrolling");
     statsCalc(detailValue);
+    console.log(detailValue);//CONSOLE
     return overlay;
 }
 
@@ -99,7 +100,6 @@ function templateOpenPokeDetail(detailValue, overlay) {
     <div id="pokemonSingleBgr">
     <div id="pokemonSingleContainer">${templatePokeDetail(detailValue)}</div>
     </div>`;
-
     /* 4te forschleife für types */
 }
 
@@ -139,6 +139,9 @@ function templatePokeDetail(detailValue) {
             <div class="info-navigation">
                 <a href="#">Base Stats</a>
                 <a href="#">About</a>
+            </div>
+            <div class="poke-description">
+
             </div>
             <div class="info-base-stats">
                 <table class="info-stats-values">
