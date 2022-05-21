@@ -1,6 +1,6 @@
 let allPokeArray = [];
 let allPokeData = [];
-let offset = 10;
+let offset = 20;
 let index = 1;
 
 async function loadPokemon() {
@@ -32,19 +32,32 @@ async function loadPokeIndex() {
 
  function templatePokeIndex(i) {
     return /*html*/`
-        <div id="overview" class="cursor" onclick="openPokeDetail()">
+        <div id="overview" class="cursor">
                 <div class="overview-description">
                     <div class="overview-seperate justify">
                         <div class="overview-name">${allPokeArray[i].name}</div>
                         <div class="overview-id">${allPokeArray[i].id}#</div>
                     </div>
                     <div class="overview-seperate">
-                        <div>TYPES</div>
-                        <img id="overviewAvatar" src="">
+                        <div>${templateTypes(i)}</div>
+                        <img id="overviewAvatar" src="${allPokeArray[i].sprites.other.dream_world.front_default}">
                     </div>
                 </div>
             </div> `;
 }
+
+function templateTypes(i) {
+    let htmlCode = "";
+    for (let j = 0; j < allPokeArray[i].types.length; j++) {
+        const typesValue = allPokeArray[i].types[j];
+        htmlCode += /*html*/`
+        <div class="overview-type">
+        <div id="overviewType">${typesValue.type['name']}</div>
+        </div>`
+    }
+    return htmlCode;
+}
+
 
 /*
 function templatePokeDetail(detailValue) {
