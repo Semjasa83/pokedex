@@ -1,6 +1,6 @@
 let allPokeArray = [];
 let allPokeData = [];
-let offset = 20;
+let offset = 22;
 let index = 1;
 
 async function loadPokemon() {
@@ -23,6 +23,23 @@ async function loadPokeIndex() {
     }
 }
 
+function openPokeDetail(i) {
+    let detailValue = allPokeArray[i];
+    let overlay = document.getElementById('pokemonPopup');
+    let noscroll = document.getElementById('bodyScroll');
+    templateOpenPokeDetail(detailValue, overlay);
+        overlay.classList.remove("d-none");
+        noscroll.classList.add("noscrolling");
+    //statsCalc(detailValue);
+}
+
+function closePokeDetail() {
+    let closePopup = document.getElementById('pokemonPopup');
+    let scroll = document.getElementById('bodyScroll');
+        closePopup.classList.add("d-none");
+        scroll.classList.remove("noscrolling");
+}
+
 /**
  * Onclick -> index += 20
  *            offset += 20  
@@ -32,7 +49,7 @@ async function loadPokeIndex() {
 
  function templatePokeIndex(i) {
     return /*html*/`
-        <div id="overview" class="cursor">
+        <div id="overview" class="cursor" onclick="openPokeDetail(${i})">
                 <div class="overview-description">
                     <div class="overview-seperate justify">
                         <div class="overview-name">${allPokeArray[i].name}</div>
@@ -58,8 +75,14 @@ function templateTypes(i) {
     return htmlCode;
 }
 
+function templateOpenPokeDetail(detailValue, overlay) {
+    overlay.innerHTML = '';
+    overlay.innerHTML += `
+    <div id="pokemonSingleBgr">
+    <div id="pokemonSingleContainer">${templatePokeDetail(detailValue)}</div>
+    </div>`;
+}
 
-/*
 function templatePokeDetail(detailValue) {
     return`
         <div id="pokedex" class="#">
@@ -124,4 +147,4 @@ function templatePokeDetail(detailValue) {
             </div>
         </div>
     `
-}*/
+}
