@@ -4,9 +4,9 @@ let offset = 22;
 let index = 1;
 
 async function loadPokemon() {
-    for (let index= 1; index < offset; index++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${index}`; 
-        let response = await fetch(url); 
+    for (let index = 1; index < offset; index++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
+        let response = await fetch(url);
         allPokemon = await response.json();
         allPokeArray.push(allPokemon);
     }
@@ -28,16 +28,49 @@ function openPokeDetail(i) {
     let overlay = document.getElementById('pokemonPopup');
     let noscroll = document.getElementById('bodyScroll');
     templateOpenPokeDetail(detailValue, overlay);
-        overlay.classList.remove("d-none");
-        noscroll.classList.add("noscrolling");
-    //statsCalc(detailValue);
+    overlay.classList.remove("d-none");
+    noscroll.classList.add("noscrolling");
+    statsCalc(detailValue);
 }
 
 function closePokeDetail() {
     let closePopup = document.getElementById('pokemonPopup');
     let scroll = document.getElementById('bodyScroll');
-        closePopup.classList.add("d-none");
-        scroll.classList.remove("noscrolling");
+    closePopup.classList.add("d-none");
+    scroll.classList.remove("noscrolling");
+}
+
+function statsCalc(detailValue) {
+    let sum = 0;
+    for (let y = 0; y < detailValue.stats.length; y++) {
+        let element = detailValue.stats[y];
+        sum += detailValue.stats[y].base_stat;
+        console.log(element.base_stat);
+        statsCalcProgressBar(element.base_stat, sum);
+    }
+    returnSum(sum);
+}
+
+function returnSum(sum) {
+    document.getElementById("stats_total").innerHTML = sum;
+}
+
+function statsCalcProgressBar(element, sum) {
+    let w = element;
+    let g = sum;
+    let p = (w / g)* 100;
+    templateProgressBar(p);
+    console.log(p);
+}
+
+
+function templateProgressBar(p) {
+    document.getElementById("progress_0").style.width = p.toFixed(0) + "%";
+    document.getElementById("progress_1").style.width = p.toFixed(0) + "%";
+    document.getElementById("progress_2").style.width = p.toFixed(0) + "%";
+    document.getElementById("progress_3").style.width = p.toFixed(0) + "%";
+    document.getElementById("progress_4").style.width = p.toFixed(0) + "%";
+    document.getElementById("progress_5").style.width = p.toFixed(0) + "%";
 }
 
 /**
@@ -46,8 +79,7 @@ function closePokeDetail() {
  *            loadAllPokemonData();
  */
 
-
- function templatePokeIndex(i) {
+function templatePokeIndex(i) {
     return /*html*/`
         <div id="overview" class="cursor" onclick="openPokeDetail(${i})">
                 <div class="overview-description">
@@ -84,7 +116,7 @@ function templateOpenPokeDetail(detailValue, overlay) {
 }
 
 function templatePokeDetail(detailValue) {
-    return`
+    return /*html*/`
         <div id="pokedex" class="#">
             <div class="pokedex-center">
                 <div class="align-left">
@@ -94,7 +126,7 @@ function templatePokeDetail(detailValue) {
                 </div>
                 <h1 id="pokemonName">${detailValue.name}</h1>
                 <span id="pokemonNumber">#${detailValue.id}</span>
-                <div class="pokemon-type"></div>
+                <div class="pokemon-type"><!--PLACEHOLDERTYPES--></div>
             </div>
             <img id="pokemonAvatar" src="${detailValue.sprites.other.dream_world.front_default}">
         </div>
