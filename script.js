@@ -3,6 +3,10 @@ let allPokeData = [];
 let offset = 22;
 let index = 1;
 
+/**
+ * 
+ */
+
 async function loadPokemon() {
     for (let index = 1; index < offset; index++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
@@ -23,6 +27,7 @@ async function loadPokeIndex() {
     }
 }
 
+
 function openPokeDetail(i) {
     let detailValue = allPokeArray[i];
     let overlay = document.getElementById('pokemonPopup');
@@ -33,6 +38,7 @@ function openPokeDetail(i) {
     statsCalc(detailValue);
 }
 
+
 function closePokeDetail() {
     let closePopup = document.getElementById('pokemonPopup');
     let scroll = document.getElementById('bodyScroll');
@@ -40,37 +46,29 @@ function closePokeDetail() {
     scroll.classList.remove("noscrolling");
 }
 
+
 function statsCalc(detailValue) {
     let sum = 0;
     for (let h = 0; h < detailValue.stats.length; h++) {
         let element = detailValue.stats[h];
         sum += detailValue.stats[h].base_stat;
         console.log(element.base_stat);
-        statsCalcProgressBar(element.base_stat, sum, h);
+        statsCalcProgressBar(element.base_stat, h);
     }
-    giveSum(sum);
-}
-
-function giveSum(sum) {
     document.getElementById("stats_total").innerHTML = sum;
 }
 
-function statsCalcProgressBar(element, sum, k) {
+
+function statsCalcProgressBar(element, k) {
     let w = element;
-    let g = sum;
+    let g = 255;
     let p = (w / g)* 100;
     templateProgressBar(p, k);
-    console.log(p);
 }
 
 
 function templateProgressBar(p, k) {
-    document.getElementById("progress_0").style.width = p.toFixed(0) + "%";
-    document.getElementById("progress_1").style.width = p.toFixed(0) + "%";
-    document.getElementById("progress_2").style.width = p.toFixed(0) + "%";
-    document.getElementById("progress_3").style.width = p.toFixed(0) + "%";
-    document.getElementById("progress_4").style.width = p.toFixed(0) + "%";
-    document.getElementById("progress_5").style.width = p.toFixed(0) + "%";
+    document.getElementById(`progress_${k}`).style.width = p.toFixed(0) + "%";
 }
 
 /**
@@ -95,6 +93,7 @@ function templatePokeIndex(i) {
             </div> `;
 }
 
+
 function templateTypes(i) {
     let htmlCode = "";
     for (let j = 0; j < allPokeArray[i].types.length; j++) {
@@ -107,6 +106,7 @@ function templateTypes(i) {
     return htmlCode;
 }
 
+
 function templateOpenPokeDetail(detailValue, overlay) {
     overlay.innerHTML = '';
     overlay.innerHTML += `
@@ -114,6 +114,7 @@ function templateOpenPokeDetail(detailValue, overlay) {
     <div id="pokemonSingleContainer">${templatePokeDetail(detailValue)}</div>
     </div>`;
 }
+
 
 function templatePokeDetail(detailValue) {
     return /*html*/`
@@ -139,37 +140,8 @@ function templatePokeDetail(detailValue) {
 
             </div>
             <div class="info-base-stats">
-                <table class="info-stats-values">
-                    <tr>
-                        <td>HP</td>
-                        <td id="stats_0">${detailValue.stats[0].base_stat}</td>
-                        <td class="progress"><span id="progress_0" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Attack</td>
-                        <td id="stats_1">${detailValue.stats[1].base_stat}</td>
-                        <td class="progress"><span id="progress_1" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Defense</td>
-                        <td id="stats_2">${detailValue.stats[2].base_stat}</td>
-                        <td class="progress"><span id="progress_2" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Sp.Atk</td>
-                        <td id="stats_3">${detailValue.stats[3].base_stat}</td>
-                        <td class="progress"><span id="progress_3" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Sp.Def</td>
-                        <td id="stats_4">${detailValue.stats[4].base_stat}</td>
-                        <td class="progress"><span id="progress_4" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Speed</td>
-                        <td id="stats_5">${detailValue.stats[5].base_stat}</td>
-                        <td class="progress"><span id="progress_5" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>
+            <table class="info-stats-values">
+                    ${showStats(detailValue.stats)}
                     <tr>
                         <td>Total</td>
                         <td id="stats_total"></td>
@@ -179,4 +151,18 @@ function templatePokeDetail(detailValue) {
             </div>
         </div>
     `
+}
+
+
+function showStats(stats) {
+    let titles = ['HP','Attack','Defense','Sp.Atk','Sp.Def','Speed',]
+    let htmlCode = "";
+    for (let i = 0; i < titles.length; i++) {
+        htmlCode += `<tr>
+                        <td>${titles[i]}</td>
+                        <td id="stats_0">${stats[i].base_stat}</td>
+                        <td class="progress"><span id="progress_${i}" class="progress-bar" style="width: 75%"></span></td>
+                    </tr>`;
+    }
+    return htmlCode;
 }
