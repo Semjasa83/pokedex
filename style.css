@@ -190,6 +190,7 @@ h5 {
     background-color: darkgray;
     background-repeat: repeat-y;
     background-size: cover;
+    padding-bottom: 150px;
 }
 
 .overview-header {

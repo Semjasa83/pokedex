@@ -42,29 +42,29 @@ function closePokeDetail() {
 
 function statsCalc(detailValue) {
     let sum = 0;
-    for (let h = 0; h < detailValue.stats.length; h++) {
-        let element = detailValue.stats[h];
-        sum += detailValue.stats[h].base_stat;
+    for (let y = 0; y < detailValue.stats.length; y++) {
+        let element = detailValue.stats[y];
+        sum += detailValue.stats[y].base_stat;
         console.log(element.base_stat);
-        statsCalcProgressBar(element.base_stat, sum, h);
+        statsCalcProgressBar(element.base_stat, sum);
     }
-    giveSum(sum);
+    returnSum(sum);
 }
 
-function giveSum(sum) {
+function returnSum(sum) {
     document.getElementById("stats_total").innerHTML = sum;
 }
 
-function statsCalcProgressBar(element, sum, k) {
+function statsCalcProgressBar(element, sum) {
     let w = element;
     let g = sum;
     let p = (w / g)* 100;
-    templateProgressBar(p, k);
+    templateProgressBar(p);
     console.log(p);
 }
 
 
-function templateProgressBar(p, k) {
+function templateProgressBar(p) {
     document.getElementById("progress_0").style.width = p.toFixed(0) + "%";
     document.getElementById("progress_1").style.width = p.toFixed(0) + "%";
     document.getElementById("progress_2").style.width = p.toFixed(0) + "%";
