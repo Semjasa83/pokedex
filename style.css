@@ -58,7 +58,7 @@ h1 {
 
 #pokedex {
     min-height: 20vh;
-    background-image: url("img/single-bgr.jpg");
+    background-image: url("img/header-bgr-tr.jpg");
     background-size: cover;
     color: white;
     display: flex;
@@ -100,14 +100,12 @@ h1 {
 
 .pokemon-type {
     display: flex;
-    width: 65px;
-    padding: 6px 2px 6px 2px;
-    justify-content: center;
-    border-radius: 24px;
-    background-color: rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap;
+    min-width: 80px;
 }
 
 #pokemonType {
+    width: 80px;
     font-size: 12px;
     font-weight: 700;
 }
@@ -138,7 +136,7 @@ h1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.info-navigation a {
+.info-nav-head {
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -146,7 +144,6 @@ h1 {
     color: rgba(0, 0, 0, 0.4);
     font-size: 12px;
     width: 80px;
-    cursor: pointer;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0);
 }
 
@@ -162,12 +159,11 @@ h1 {
 }
 
 td:first-child {
-    padding-right: 24px;
+    padding-right: 20px;
 }
 
 td:nth-child(1n +2) {
     padding-right: 16px;
-    text-align: center;
 }
 
 h5 {
@@ -182,13 +178,14 @@ h5 {
 
 .overview-body {
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: lightgray;
     min-height: 100vh;
     background-image: url("img/single-bgr.jpg");
     background-color: darkgray;
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: 100%;
     padding-bottom: 150px;
 }
 
@@ -231,7 +228,7 @@ h5 {
 }
 
 #overviewContent {
-    color: white;
+    color: #000000;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -295,6 +292,39 @@ h5 {
     height: 100px;
     object-fit: contain;
     margin: 16px 0 0 16px;
+}
+
+#loadMore {
+    min-width: auto;
+    height: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 4px 8px 4px 8px;
+    color: #306CB3;
+    border: 3px solid #306CB3;
+    border-color: #306CB3;
+    background-color: #FFCB04;
+    border-radius: 8px;
+}
+
+.info-poke-description {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 24px;
+}
+
+.align {
+    text-align: right;
+}
+
+.attributes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Progressbars */
