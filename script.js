@@ -1,19 +1,20 @@
 let allPokeArray = [];
 let allPokeData = [];
 let offset = 10;
-let index = 1;
+let l = 1;
 
 /**
  * use INDEX only for loadPokemon(), otherwise errors will occur
  */
 
 async function loadPokemon() {
-    for (let index = 1; index < offset; index++) {
+    for (let index = l; index < offset; index++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
         let response = await fetch(url);
         allPokemon = await response.json();
         allPokeArray.push(allPokemon);
     }
+    l += 9;
     console.log(allPokeArray);
     loadPokeIndex();
 }
@@ -28,8 +29,8 @@ async function loadPokeIndex() {
 }
 
 function loadMorePokemon() {
-    offset += 10;
-    loadPokemon(offset);
+    offset += 9;
+    loadPokemon();
 }
 
 function openPokeDetail(i) {
@@ -40,7 +41,6 @@ function openPokeDetail(i) {
     overlay.classList.remove("d-none");
     noscroll.classList.add("noscrolling");
     statsCalc(detailValue);
-    console.log(detailValue);
 }
 
 
@@ -114,6 +114,8 @@ function templateTypes(i) {
         <div class="overview-type">
         <div id="overviewType">${typesValue.type['name']}</div>
         </div>`
+        console.log(typesValue.type['name']);
+        //document.getElementById('overview').classList.add(`${typesValue.type['name']}`);
     }
     return htmlCode;
 }
@@ -160,11 +162,11 @@ function templatePokeDetail(detailValue, i) {
             </div>
             <div class="info-poke-description">
                 <div class="attributes">
-                    <span class="mrg-lft">Weight:</span>
+                    <span class="attr-spacer">Weight:</span>
                     <span>${detailValue.height}</span>
                 </div>    
                 <div class="attributes">
-                    <span class="mrg-lft">Height:</span>
+                    <span class="attr-spacer">Height:</span>
                     <span>${detailValue.weight}</span>
                 </div>    
             </div>
