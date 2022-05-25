@@ -93,12 +93,14 @@ h1 {
 }
 
 #pokemonNumber {
+    color: black;
     text-align: right;
     font-size: 14px;
     font-weight: 700;
 }
 
 .pokemon-type {
+    color: black;
     display: flex;
     flex-wrap: wrap;
     min-width: 80px;
@@ -272,7 +274,7 @@ h5 {
     max-width: 100%;
 }
 
-.overview-type {
+.overview-type-container {
     display: flex;
     align-items: center;
     margin-top: 8px;
