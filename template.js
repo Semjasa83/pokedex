@@ -8,7 +8,7 @@ function templatePokeIndex(i) {
         <div id="overview" class="cursor" onclick="openPokeDetail(${i})">
                 <div class="overview-description">
                     <div class="overview-seperate justify">
-                        <div class="overview-name">${allPokeArray[i].name}</div>
+                        <div class="overview-name">${allPokeArray[i].name.charAt(0).toUpperCase() + allPokeArray[i].name.slice(1)}</div>
                         <div class="overview-id">${allPokeArray[i].id}#</div>
                     </div>
                     <div class="overview-seperate">
@@ -28,8 +28,8 @@ function templateTypes(i) {
         <div id="typeColor" class="overview-type-container">
         <div id="overviewType">${typesValue.type['name']}</div>
         </div>`
-        console.log(typesValue.type['name']);
-        typesColor(typesValue.type['name']);
+        //console.log(typesValue.type['name']);
+        typesColor(typesValue.type['name'], i);
     }
     return htmlCode;
 }
@@ -53,7 +53,7 @@ function templatePokeDetail(detailValue, i) {
                     <img class="return-button cursor" src="img/arrow-left.png" onclick="closePokeDetail()">
                     </div>
                 </div>
-                <h1 id="pokemonName">${detailValue.name}</h1>
+                <h1 id="pokemonName">${detailValue.name.charAt(0).toUpperCase() + detailValue.name.slice(1)}</h1>
                 <span id="pokemonNumber">#${detailValue.id}</span>
                 <div class="pokemon-type">${templateTypes(i)}</div>
             </div>

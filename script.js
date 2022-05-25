@@ -1,6 +1,5 @@
 let allPokeArray = [];
-let allPokeData = [];
-let offset = 10;
+let offset = 20;
 let l = 1;
 
 /**
@@ -8,13 +7,13 @@ let l = 1;
  */
 
 async function loadPokemon() {
-    for (let index = l; index < offset; index++) {
+    for (let index = l; index <= offset; index++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
         let response = await fetch(url);
         allPokemon = await response.json();
         allPokeArray.push(allPokemon);
     }
-    l += 9;
+    l += 20;
     console.log(allPokeArray);
     loadPokeIndex();
 }
@@ -29,7 +28,7 @@ async function loadPokeIndex() {
 }
 
 function loadMorePokemon() {
-    offset += 9;
+    offset += 20;
     loadPokemon();
 }
 
@@ -51,6 +50,13 @@ function closePokeDetail() {
     scroll.classList.remove("noscrolling");
 }
 
+async function typesColor(typeSetColor, i) {
+    let typesColors = typeSetColor;
+    if (allPokeArray[i] >= 0) {
+        document.getElementById('typecolor').classList.add(`${typesColors}`); 
+    }
+}
+
 
 function statsCalc(detailValue) {
     let sum = 0;
@@ -70,12 +76,6 @@ function statsCalcProgressBar(element, k) {
     templateProgressBar(p, k);
 }
 
-async function typesColor(typeSetColor) {
-    let typesColors = typeSetColor;
-    if (allPokeArray >= 1) {
-        document.getElementById('typecolor').classList.add(`${typesColors}`); 
-    }
-}
 
 function showStats(stats) {
     let titles = ['HP','Attack','Defense','Sp.Atk','Sp.Def','Speed',]
