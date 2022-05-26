@@ -25,11 +25,10 @@ function templateTypes(i) {
     for (let j = 0; j < allPokeArray[i].types.length; j++) {
         const typesValue = allPokeArray[i].types[j];
         htmlCode += /*html*/`
-        <div id="typeColor" class="overview-type-container">
+        <div id="typeColor" class="overview-type-container ${typesValue.type['name']}">
         <div id="overviewType">${typesValue.type['name']}</div>
         </div>`
         //console.log(typesValue.type['name']);
-        typesColor(typesValue.type['name'], i);
     }
     return htmlCode;
 }

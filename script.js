@@ -31,7 +31,12 @@ function loadMorePokemon() {
     offset += 20;
     loadPokemon();
 }
-
+/*
+function searchPokemon() {
+    let search = document.getElementById('searchinput').ariaValueMax;
+    search = search.toLowerCase();
+}
+*/
 function openPokeDetail(i) {
     let detailValue = allPokeArray[i];
     let overlay = document.getElementById('pokemonPopup');
@@ -48,13 +53,6 @@ function closePokeDetail() {
     let scroll = document.getElementById('bodyScroll');
     closePopup.classList.add("d-none");
     scroll.classList.remove("noscrolling");
-}
-
-async function typesColor(typeSetColor, i) {
-    let typesColors = typeSetColor;
-    if (allPokeArray[i] >= 0) {
-        document.getElementById('typecolor').classList.add(`${typesColors}`); 
-    }
 }
 
 
