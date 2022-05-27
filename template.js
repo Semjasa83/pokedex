@@ -28,7 +28,6 @@ function templateTypes(i) {
         <div id="typeColor" class="overview-type-container ${typesValue.type['name']}">
         <div id="overviewType">${typesValue.type['name']}</div>
         </div>`
-        //console.log(typesValue.type['name']);
     }
     return htmlCode;
 }

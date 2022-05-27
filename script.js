@@ -2,9 +2,6 @@ let allPokeArray = [];
 let offset = 20;
 let l = 1;
 
-/**
- * use INDEX only for loadPokemon(), otherwise errors will occur
- */
 
 async function loadPokemon() {
     for (let index = l; index <= offset; index++) {
@@ -16,6 +13,13 @@ async function loadPokemon() {
     l += 20;
     console.log(allPokeArray);
     loadPokeIndex();
+}
+
+
+function searchPokemon() {
+    let search = document.getElementById('searchinput').value;
+    //let searchurl = `https://pokeapi.co/api/v2/pokemon/${search}`;
+    //templateOpenPokeDetail(detailValue, overlay, i)
 }
 
 
@@ -31,12 +35,7 @@ function loadMorePokemon() {
     offset += 20;
     loadPokemon();
 }
-/*
-function searchPokemon() {
-    let search = document.getElementById('searchinput').ariaValueMax;
-    search = search.toLowerCase();
-}
-*/
+
 function openPokeDetail(i) {
     let detailValue = allPokeArray[i];
     let overlay = document.getElementById('pokemonPopup');
@@ -46,7 +45,6 @@ function openPokeDetail(i) {
     noscroll.classList.add("noscrolling");
     statsCalc(detailValue);
 }
-
 
 function closePokeDetail() {
     let closePopup = document.getElementById('pokemonPopup');
