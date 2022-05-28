@@ -1,8 +1,10 @@
 let allPokeArray = [];
-let offset = 20;
+let savedAllPokeArray = [];
+let offset = 298;
 let l = 1;
 
 
+//fetch the first Pokemons
 async function loadPokemon() {
     for (let index = l; index <= offset; index++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${index}`;
@@ -10,19 +12,13 @@ async function loadPokemon() {
         allPokemon = await response.json();
         allPokeArray.push(allPokemon);
     }
-    l += 20;
+    l += 298;
     console.log(allPokeArray);
+    savedAllPokeArray = allPokeArray;
     loadPokeIndex();
 }
 
-
-function searchPokemon() {
-    let search = document.getElementById('searchinput').value;
-    //let searchurl = `https://pokeapi.co/api/v2/pokemon/${search}`;
-    //templateOpenPokeDetail(detailValue, overlay, i)
-}
-
-
+//load the first Pokemons by Template
 async function loadPokeIndex() {
     document.getElementById('overviewContent').innerHTML = '';
     for (let i = 0; i < allPokeArray.length; i++) {
@@ -31,11 +27,13 @@ async function loadPokeIndex() {
     }
 }
 
+//push Amount of first Pokemons
 function loadMorePokemon() {
-    offset += 20;
+    offset += 300;
     loadPokemon();
 }
 
+//opens the Details of specific Pokemon
 function openPokeDetail(i) {
     let detailValue = allPokeArray[i];
     let overlay = document.getElementById('pokemonPopup');
@@ -46,6 +44,7 @@ function openPokeDetail(i) {
     statsCalc(detailValue);
 }
 
+//close the Detail Pokemon Popup
 function closePokeDetail() {
     let closePopup = document.getElementById('pokemonPopup');
     let scroll = document.getElementById('bodyScroll');
@@ -53,7 +52,7 @@ function closePokeDetail() {
     scroll.classList.remove("noscrolling");
 }
 
-
+//calculate the Stats of the specific Pokemon
 function statsCalc(detailValue) {
     let sum = 0;
     for (let h = 0; h < detailValue.stats.length; h++) {
@@ -64,7 +63,7 @@ function statsCalc(detailValue) {
     document.getElementById("stats_total").innerHTML = sum;
 }
 
-
+//shows the Stats in Progressbars
 function statsCalcProgressBar(element, k) {
     let w = element;
     let g = 255;
@@ -72,7 +71,7 @@ function statsCalcProgressBar(element, k) {
     templateProgressBar(p, k);
 }
 
-
+//render the Stats of specific Pokemon
 function showStats(stats) {
     let titles = ['HP','Attack','Defense','Sp.Atk','Sp.Def','Speed',]
     let htmlCode = "";
@@ -87,4 +86,31 @@ function showStats(stats) {
 }
 
 
+//Input must be a valid Pokemon Name
+async function searchPokemon() {
+    let search = document.getElementById('searchinput').value;
+    let pokeArray = [];
+    const loadedPokemon = findPokemonByName(search);
 
+    if(! loadedPokemon){
+        const searchedPokemon = await fetchPokemonbyName(search);
+    }
+    if(document.getElementById('searchinput').value == search) {    
+        allPokeArray = loadedPokemon;
+        loadPokeIndex();
+    }
+
+}
+
+function findPokemonByName(search){
+    return allPokeArray.find(p => p.name == search);
+}
+/*
+async function fetchPokemonbyName(name) {
+
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+        let response = await fetch(url);
+        allPokemon = await response.json();
+        return getPokemonbyName;
+}
+*/

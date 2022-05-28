@@ -13,7 +13,7 @@ function templatePokeIndex(i) {
                     </div>
                     <div class="overview-seperate">
                         <div>${templateTypes(i)}</div>
-                        <img id="overviewAvatar" src="${allPokeArray[i].sprites.other.dream_world.front_default}">
+                        <img id="overviewAvatar" src="${allPokeArray[i].sprites.front_default}">
                     </div>
                 </div>
             </div> `;
@@ -55,7 +55,7 @@ function templatePokeDetail(detailValue, i) {
                 <span id="pokemonNumber">#${detailValue.id}</span>
                 <div class="pokemon-type">${templateTypes(i)}</div>
             </div>
-            <img id="pokemonAvatar" src="${detailValue.sprites.other.dream_world.front_default}">
+            <img id="pokemonAvatar" src="${detailValue.sprites.front_default}">
         </div>
         <div class="info-pokemon">
             <div class="info-navigation">
