@@ -19,7 +19,7 @@ async function loadPokemon() {
 }
 
 //load the first Pokemons by Template
-async function loadPokeIndex() {
+function loadPokeIndex() {
     document.getElementById('overviewContent').innerHTML = '';
     for (let i = 0; i < allPokeArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
@@ -87,30 +87,12 @@ function showStats(stats) {
 
 
 //Input must be a valid Pokemon Name
-async function searchPokemon() {
+function searchPokemon() {
     let search = document.getElementById('searchinput').value;
-    let pokeArray = [];
-    const loadedPokemon = findPokemonByName(search);
-
-    if(! loadedPokemon){
-        const searchedPokemon = await fetchPokemonbyName(search);
-    }
-    if(document.getElementById('searchinput').value == search) {    
+    const loadedPokemon = savedAllPokeArray.filter(p => p.name.includes(search));
+    console.log(loadedPokemon);
+    if(document.getElementById('searchinput').value == search) {
         allPokeArray = loadedPokemon;
         loadPokeIndex();
     }
-
 }
-
-function findPokemonByName(search){
-    return allPokeArray.find(p => p.name == search);
-}
-/*
-async function fetchPokemonbyName(name) {
-
-    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-        let response = await fetch(url);
-        allPokemon = await response.json();
-        return getPokemonbyName;
-}
-*/
