@@ -31,6 +31,17 @@ h1 {
     margin-top: 24px;
 }
 
+/* loading */
+.load-loop {
+    height: 100px;
+    width: 120px;
+}
+
+.load-loop img {
+    object-fit: contain;
+    height: 100%;
+}
+
 /* Upper Info Detailbox */
 
 #pokemonPopup {

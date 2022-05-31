@@ -20,15 +20,35 @@ async function loadPokemon() {
 
 //load the first Pokemons by Template
 function loadPokeIndex() {
+    loadIndicator();
     document.getElementById('overviewContent').innerHTML = '';
     for (let i = 0; i < allPokeArray.length; i++) {
         document.getElementById('overviewContent').innerHTML +=
             templatePokeIndex(i);
     }
+    killIndicatorMore();
+}
+
+
+/* charge Indicator Animation */
+function loadIndicator() {
+let loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.classList.add("d-none");
+}
+
+function loadIndicatorMore() {
+    let secondLoadScreen = document.getElementById('secondLoadScreen'); 
+    secondLoadScreen.classList.remove("d-none");
+}
+
+function killIndicatorMore() {
+    let secondLoadScreen = document.getElementById('secondLoadScreen'); 
+    secondLoadScreen.classList.add("d-none");
 }
 
 //push Amount of first Pokemons
 function loadMorePokemon() {
+    loadIndicatorMore();
     offset += 300;
     loadPokemon();
 }
