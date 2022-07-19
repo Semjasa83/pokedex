@@ -28,18 +28,19 @@ h1 {
 }
 
 .mrg-top {
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 
 /* loading */
 .load-loop {
-    height: 100px;
-    width: 120px;
+    min-height: 75%;
+    width: 7.5rem;
 }
 
 .load-loop img {
     object-fit: contain;
-    height: 100%;
+    width: 7.5rem;
+    height: 100px;
 }
 
 /* Upper Info Detailbox */
@@ -67,7 +68,7 @@ h1 {
 }
 
 #pokemonSingleContainer {
-    width: 350px;
+    width: 21.875rem;
     z-index: 2;
 }
 
@@ -77,12 +78,12 @@ h1 {
     background-size: cover;
     color: white;
     display: flex;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    border-top-left-radius: 1.5625rem;
+    border-top-right-radius: 1.5625rem;
     flex-direction: column;
-    padding-left: 24px;
-    padding-right: 24px;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: .25rem .25rem .375rem rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
 
@@ -97,20 +98,20 @@ h1 {
 }
 
 .return-button {
-    margin-top: 16px;
-    padding: 2px;
-    height: 24px;
+    margin-top: 1rem;
+    padding: .125rem;
+    height: 1.5rem;
     object-fit: contain;
 }
 
 #pokemonName {
-    margin: 12px 0 0 0;
+    margin: .75rem 0 0 0;
 }
 
 #pokemonNumber {
     color: black;
     text-align: right;
-    font-size: 14px;
+    font-size: .875rem;
     font-weight: 700;
 }
 
@@ -118,19 +119,19 @@ h1 {
     color: black;
     display: flex;
     flex-wrap: wrap;
-    min-width: 80px;
+    min-width: 5rem;
 }
 
 #pokemonType {
-    width: 80px;
-    font-size: 12px;
+    width: 5rem;
+    font-size: .75rem;
     font-weight: 700;
 }
 
 #pokemonAvatar {
     display: flex;
-    padding-top: 12px;
-    height: 150px;
+    padding-top: .75rem;
+    height: 9.375rem;
     object-fit: contain;
 }
 
@@ -138,57 +139,57 @@ h1 {
 
 .info-pokemon {
     background-color: white;
-    border-radius: 25px;
-    min-height: 370px;
-    margin-top: -30px;
-    padding-left: 24px;
-    padding-right: 24px;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 1.5625rem;
+    min-height: 23.125rem;
+    margin-top: -1.875rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: .25rem .25rem .375rem rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
 
 .info-navigation {
     display: flex;
-    padding-top: 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 2.5rem;
+    border-bottom: .0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .info-nav-head {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    padding-bottom: 12px;
+    padding-bottom: .75rem;
     color: rgba(0, 0, 0, 0.4);
-    font-size: 12px;
-    width: 80px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0);
+    font-size: .75rem;
+    width: 5rem;
+    border-bottom: .0625rem solid rgba(0, 0, 0, 0.0);
 }
 
 .info-navigation a:hover {
-    border-bottom: 1px solid black;
+    border-bottom: .0625rem solid black;
 }
 
 .info-stats-values {
-    margin-top: 16px;
-    font-size: 12px;
+    margin-top: 1rem;
+    font-size: .75rem;
     color: rgba(0, 0, 0, 0.5);
-    border-spacing: 0px 4px;
+    border-spacing: 0rem .25rem;
 }
 
 td:first-child {
-    padding-right: 20px;
+    padding-right: 1.25rem;
 }
 
 td:nth-child(1n +2) {
-    padding-right: 16px;
+    padding-right: 1rem;
 }
 
 h5 {
-    margin: 16px 0 2px 0;
+    margin: 1rem 0 .125rem 0;
 }
 
 #infoTypeDefenses {
-    font-size: 12px;
+    font-size: .75rem;
 }
 
 /* Pokemon Overview */
@@ -203,7 +204,7 @@ h5 {
     background-color: darkgray;
     background-repeat: repeat-y;
     background-size: 100%;
-    padding-bottom: 150px;
+
 }
 
 .overview-header {
@@ -211,16 +212,16 @@ h5 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 150px;
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-top: 16px;
+    min-height: 9.375rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 1rem;
 }
 
 .overview-header img {
     object-fit: cover;
-    width: 300px;
-    margin-bottom: 24px;
+    width: 18.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .searchbar {
@@ -228,20 +229,20 @@ h5 {
 }
 
 #searchinput {
-    border: 3px solid #306CB3;
-    padding: 4px 8px 4px 8px;
-    border-radius: 8px;
+    border: .1875rem solid #306CB3;
+    padding: .25rem .5rem .25rem .5rem;
+    border-radius: .5rem;
     background-color: #fff1b9;
 }
 
 #searchbutton {
-    padding: 4px 8px 4px 8px;
+    padding: .25rem .5rem .25rem .5rem;
     color: #306CB3;
-    border: 3px solid #306CB3;
+    border: .1875rem solid #306CB3;
     border-color: #306CB3;
     background-color: #FFCB04;
-    border-radius: 8px;
-    margin-left: 4px;
+    border-radius: .5rem;
+    margin-left: .25rem;
 }
 
 #overviewContent {
@@ -249,19 +250,19 @@ h5 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 
 #overview {
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    width: 230px;
-    min-height: 150px;
-    padding: 24px 12px 12px 12px;
-    margin: 16px;
+    border-radius: 1.25rem;
+    width: 14.375rem;
+    min-height: 9.375rem;
+    padding: 1.5rem .75rem .75rem .75rem;
+    margin: 1rem;
     overflow: hidden;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: .25rem .25rem .375rem rgba(0, 0, 0, 0.4);
     background-image: url("img/header-bgr-tr.jpg");
     background-size: cover;
 }
@@ -273,64 +274,64 @@ h5 {
 .overview-name {
     display: flex;
     text-align: left;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 .overview-id {
     display: flex;
     text-align: right;
-    font-size: 12px;
+    font-size: .75rem;
 }
 
 .overview-seperate {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: .5rem;
     max-width: 100%;
 }
 
 .overview-type-container {
     display: flex;
     align-items: center;
-    margin-top: 8px;
-    margin-right: 16px;
-    width: 65px;
-    height: 12px;
-    padding: 6px 2px 6px 2px;
+    margin-top: .5rem;
+    margin-right: 1rem;
+    width: 4.0625rem;
+    height: .75rem;
+    padding: .375rem .125rem .375rem .125rem;
     justify-content: center;
-    border-radius: 24px;
+    border-radius: 1.5rem;
     background-color: rgba(255, 255, 255, 0.2);
-    font-size: 12px;
+    font-size: .75rem;
     font-weight: 600;
 }
 
 #overviewAvatar {
     display: flex;
-    height: 100px;
+    height: 6.25rem;
     object-fit: contain;
-    margin: 16px 0 0 16px;
+    margin: 1rem 0 0 1rem;
 }
 
 #loadMore {
     min-width: auto;
-    height: 20px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    padding: 4px 8px 4px 8px;
+    height: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: .25rem .5rem .25rem .5rem;
     color: #306CB3;
-    border: 3px solid #306CB3;
+    border: .1875rem solid #306CB3;
     border-color: #306CB3;
     background-color: #FFCB04;
-    border-radius: 8px;
+    border-radius: .5rem;
 }
 
 .info-poke-description {
     display: flex;
     justify-content: space-around;
-    font-size: 12px;
+    font-size: .75rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.5);
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 
 .align {
@@ -348,12 +349,12 @@ h5 {
 
 .progress {
     width: 100%;
-    max-width: 260px;
-    height: 6px;
+    max-width: 16.25rem;
+    height: .375rem;
     background: #e1e4e8;
-    border-radius: 3px;
+    border-radius: .1875rem;
     overflow: hidden;
-    border: 1px solid rgb(99, 99, 99);
+    border: .0625rem solid rgb(99, 99, 99);
 }
 
 .progress-bar {
@@ -386,17 +387,17 @@ h5 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 48px;
-    border-top: 2px solid black;
+    margin-top: 3rem;
+    border-top: .125rem solid black;
     color: black;
 }
 
 .copyright {
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 
 .social-media img {
-    width: 32px;
+    width: 2rem;
     cursor: pointer;
 }
 
@@ -407,5 +408,24 @@ h5 {
 }
 
 .mrg-lft {
-    margin-left: 16px;
+    margin-left: 1rem;
+}
+
+/* Impress */
+
+.impress {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("img/single-bgr.jpg");
+    background-size: cover;
+}
+
+.data-protect {
+    margin: 1rem;
+    background-image: url("img/single-bgr.jpg");
+    background-repeat: repeat-y;
+    background-size: contain;
+    color: black;
 }
