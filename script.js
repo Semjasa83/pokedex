@@ -1,6 +1,6 @@
 let allPokeArray = [];
 let savedAllPokeArray = [];
-let offset = 298;
+let offset = 98;
 let l = 1;
 
 
@@ -12,7 +12,7 @@ async function loadPokemon() {
         allPokemon = await response.json();
         allPokeArray.push(allPokemon);
     }
-    l += 298;
+    l += 98;
     console.log(allPokeArray);
     savedAllPokeArray = allPokeArray;
     loadPokeIndex();
@@ -49,7 +49,7 @@ function killIndicatorMore() {
 //push Amount of first Pokemons
 function loadMorePokemon() {
     loadIndicatorMore();
-    offset += 300;
+    offset += 100;
     loadPokemon();
 }
 
